@@ -121,26 +121,22 @@ function App() {
   const [power, setPower] = useState("On")
   const play = (key, tune) => {
     const audio = document.getElementById(key)
-    if (power === "On") {
       audio.currentTime = 0
       audio.volume = volume
       audio.play()
       setTuneName(tune)
+  }
+  const handleKeydown = (evt) => {
+    for (let sound of firstSoundsGroup) {
+      if (evt.keyCode === sound.keyCode) {
+        play(sound.key, sound.id)
+      }
     }
   }
   useEffect(() => {
     document.addEventListener("keydown", handleKeydown)
   })
-  const handleKeydown = (evt) => {
-    if (power==="On") {
-      for (let sound of firstSoundsGroup) {
-        if (evt.keyCode === sound.keyCode) {
-          play(sound.key)
-          setTuneName(sound.id)
-        }
-      }
-    }   
-  }
+
   const choosePiano = () => {
     setSoundsGroup([...secondSoundsGroup])
     setTuneName("Piano")
@@ -151,11 +147,7 @@ function App() {
   }
 
   const drumSwitch = () =>{
-    if (power === "On") {
-      setPower("Off")
-    } else {
-      setPower("On")
-    }
+    power === "On" ? setPower("Off") : setPower("On")
   }
   const changeVolume = (evt) =>{
     setVolume(evt.target.value)
