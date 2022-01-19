@@ -1,6 +1,15 @@
+* {
+  font-family: 'Roboto', sans-serif;
+  color: white;
+}
+
+body {
+  background-color: #f6f6f6;
+}
+
 #drum-machine {
   padding: 2rem;
-  background-color: skyblue;
+  background-color: #111;
   display: flex;
   flex-direction: row;
   align-items: center;
@@ -10,22 +19,25 @@
   box-shadow: 2px 5px 10px silver;
   
 }
+input[type='range'] {
+  cursor: pointer;
+}
 .keyboard {
   width: 240px;
 }
 .drum-pad {
   font-size: 30px;
-  background-color: lightsalmon;
+  font-weight: 700;
+  background-color: #EE9406;
   width: 70px;
   height: 60px;
   margin: 5px;
   border-radius: 5px;
   border-style: none;
-  box-shadow: 1px 1px 5px grey;
   
 }
-.drum-pad:hover {
-  background-color: rgb(250, 198, 178);
+button:hover {
+  opacity: 0.7;
   transition: all 0.5s ease;
   
 }
@@ -35,5 +47,15 @@
   align-items: center;
   justify-content: center;
   min-height: 100vh;
+}
+
+button {
+  background: #323232;
+  border-style: none;
+  padding: 8px;
+  width: 60px;
+  border-radius: 4px;
+  margin-right: 8px;
+  cursor: pointer;
 }
 

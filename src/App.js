@@ -118,7 +118,6 @@ function App() {
   const [tuneName, setTuneName] = useState("Heater")
   const [soundsGroup, setSoundsGroup] = useState([...firstSoundsGroup])
   const [volume, setVolume] = useState("1")
-  const [power, setPower] = useState("On")
   const play = (key, tune) => {
     const audio = document.getElementById(key)
       audio.currentTime = 0
@@ -146,16 +145,13 @@ function App() {
     setTuneName("Heater")
   }
 
-  const drumSwitch = () =>{
-    power === "On" ? setPower("Off") : setPower("On")
-  }
   const changeVolume = (evt) =>{
     setVolume(evt.target.value)
   }
   return (
     <div id="drum-machine">
       <Keyboard soundsGroup={soundsGroup} play={play} />
-      <DrumControl drumSwitch={drumSwitch} power={power} 
+      <DrumControl 
         volume={volume} changeVolume={changeVolume}
         tuneName={tuneName} chooseHeater={chooseHeater}
         choosePiano={choosePiano} />
