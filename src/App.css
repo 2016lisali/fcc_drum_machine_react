@@ -39,7 +39,9 @@ input[type='range'] {
 button:hover {
   opacity: 0.7;
   transition: all 0.5s ease;
-  
+}
+button:active {
+  transform: scale(0.98);
 }
 #root { 
   display: flex;
